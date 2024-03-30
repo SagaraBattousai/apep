@@ -1,4 +1,4 @@
 Apep
 ====
 
-Apep is a
+Apep is a python binding for thoth
