@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apep"
+version = "0.0.1"
+description = "Apep is"
+readme = "README.rst"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+    {name = "James Calo", email = "jamesafcalo@gmail.com"},
+]
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+  "numpy",
+  #'importlib-metadata; python_version<"3.8"',
+]
