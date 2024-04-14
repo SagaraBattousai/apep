@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools","cemake"]
+requires = ["setuptools","cpymake", "numpy"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -24,3 +24,17 @@ dependencies = [
   "numpy",
   #'importlib-metadata; python_version<"3.8"',
 ]
+
+#TODO: Remove to cpymake
+[tool.setuptools.packages.find]
+exclude = ["cmake"] # temp
+
+[tool.black]
+preview = true
+
+# Better to specify in setup.py as setup() is required to create Distribution
+# [tool.setuptools.cmdclass]
+# build_ext = "cpymake.command.build_ext.build_ext"
+
+
+

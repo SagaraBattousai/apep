@@ -1,7 +1,8 @@
 import setuptools
-import cemake
+import cpymake
+import cpymake.command.build_ext
 
 setuptools.setup(
-    ext_modules = [cemake.CMakeExtension("Extension_Package")],
-    cmdclass = {'build_ext': cemake.cmake_build_ext}
+    ext_modules = [cpymake.Extension("apep.ml.genetic", "apep_genetic")],
+    cmdclass = {"build_ext": cpymake.command.build_ext.build_ext}
     )
