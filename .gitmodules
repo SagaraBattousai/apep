@@ -1,3 +1,6 @@
 [submodule "thoth"]
 	path = thoth
 	url = git@github.com:SagaraBattousai/thoth.git
+[submodule "cmake"]
+	path = cmake
+	url = git@github.com:SagaraBattousai/cmake_modules.git
