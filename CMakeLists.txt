@@ -25,10 +25,10 @@ endif()
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-# set(CMAKE_MODULE_PATH 
-#   "${PROJECT_SOURCE_DIR}/cmake"
-#   ${CMAKE_MODULE_PATH}
-#   )
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+
+include(PythonUtils)
+include(DocsUtils)
 
 if (MSVC)
   # 4100 must be ignored as PyObject *self may be unreferenced
@@ -42,26 +42,26 @@ endif()
 
 set(MODULE_ROOT "${PROJECT_SOURCE_DIR}/include")
 
-if(NOT DEFINED PYTHON_EXTENSION_SUFFIX)
-  if(WIN32)
-    set(PYTHON_EXTENSION_SUFFIX ".pyd")
-  else()
-    set(PYTHON_EXTENSION_SUFFIX ".so")
-  endif()
-endif() 
+# if(NOT DEFINED PYTHON_EXTENSION_SUFFIX)
+#   if(WIN32)
+#     set(PYTHON_EXTENSION_SUFFIX ".pyd")
+#   else()
+#     set(PYTHON_EXTENSION_SUFFIX ".so")
+#   endif()
+# endif() 
 
 add_subdirectory(thoth)
 add_subdirectory(apep)
 
-#if(APEP_BUILD_TESTS)
-#  enable_testing()
-#  add_subdirectory(tests)
-#endif()
+if(APEP_BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(tests)
+endif()
 
-#if(APEP_BUILD_DOCS)
-#  add_subdirectory(docs)
-#  #Do I need to add pulse's dependancies as well or is that transitive!?
-#  # add_dependencies(Doxygen <Target_dependancies>)
-#endif()
+if(APEP_BUILD_DOCS)
+  add_subdirectory(docs)
+  #Do I need to add pulse's dependancies as well or is that transitive!?
+  # add_dependencies(Doxygen <Target_dependancies>)
+endif()
 
 
